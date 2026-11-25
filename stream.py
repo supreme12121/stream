@@ -1,13 +1,16 @@
 import asyncio
 import logging
+import os
 
 import discord
 from discord.ext.native_voice import FFmpegMediaSource, StreamClient, VoiceClient
 
 logging.basicConfig(level=logging.DEBUG)  # lower to INFO once it works
 
-TOKEN = str(input("token: "))
-CHANNEL_ID = int(input("voice channel id: "))
+TOKEN = os.getenv("TOKEN")
+if not TOKEN:
+    print("token not entered")
+CHANNEL_ID = "1575118260515635221" # voice channel id
 VIDEO_FILE = "test.mp4"
 
 client = discord.Client()
